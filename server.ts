@@ -1,4 +1,5 @@
-const express = require("express");
+import express, { Request, Response } from 'express';
+
 const app = express();
 const mongoose = require("mongoose");
 const { PORT, mongoUri } = require("./config");
@@ -13,8 +14,8 @@ app.use(bodyparser.json());
 mongoose
   .connect(mongoUri)
   .then(() => console.log("MongoDB database connected"))
-  .catch((err) => console.log(err));
+  .catch((err: Error) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (_req: Request, res: Response) => res.send("Hello World!"));
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
