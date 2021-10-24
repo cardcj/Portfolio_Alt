@@ -1,10 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
+    <MobileMenu />
   </div>
-  <router-view/>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import MobileMenu from '@/components/MobileMenu.vue';
+
+export default defineComponent({
+  components: {
+    MobileMenu
+  }
+})
+</script>
+
 
 <style>
 #app {
